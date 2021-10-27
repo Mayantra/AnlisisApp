@@ -1,0 +1,174 @@
+CREATE DATABASE [INTECAP]
+
+USE [INTECAP]
+GO
+/****** Object:  Table [dbo].[area]    Script Date: 28/09/2021 11:19:27 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[area](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[nombre] [varchar](100) NOT NULL,
+ CONSTRAINT [PK_area] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[cajachica_egresos]    Script Date: 28/09/2021 11:19:27 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[cajachica_egresos](
+	[egresos_id] [int] NOT NULL,
+	[registrocajachica] [int] NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[egresos]    Script Date: 28/09/2021 11:19:27 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[egresos](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[receptor] [varchar](100) NOT NULL,
+	[cantidad] [bigint] NOT NULL,
+	[fecha] [date] NOT NULL,
+	[observaciones] [varchar](100) NULL,
+	[taller_id] [int] NOT NULL,
+	[area_id] [int] NOT NULL,
+ CONSTRAINT [PK_egresos] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ingresos_egresos]    Script Date: 28/09/2021 11:19:27 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ingresos_egresos](
+	[egresos_id] [int] NOT NULL,
+	[registroingreso_id] [int] NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[registrocajachica]    Script Date: 28/09/2021 11:19:27 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[registrocajachica](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[nombre] [varchar](100) NOT NULL,
+	[cantidad] [bigint] NOT NULL,
+	[fecha] [date] NOT NULL,
+	[tipounidad_id] [int] NOT NULL,
+ CONSTRAINT [PK_registrocajachica] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[registroingreso]    Script Date: 28/09/2021 11:19:27 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[registroingreso](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[nombre] [varchar](100) NOT NULL,
+	[cantidad] [bigint] NOT NULL,
+	[fecha] [date] NOT NULL,
+	[tipounidad_id] [int] NOT NULL,
+ CONSTRAINT [PK_registroingreso] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[taller]    Script Date: 28/09/2021 11:19:27 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[taller](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[nombre] [varchar](100) NOT NULL,
+ CONSTRAINT [PK_taller] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tipounidad]    Script Date: 28/09/2021 11:19:27 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tipounidad](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[nombre] [varchar](100) NOT NULL,
+ CONSTRAINT [PK_tipounidad] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[usuario]    Script Date: 28/09/2021 11:19:27 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[usuario](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[nombreusuario] [varchar](100) NOT NULL,
+	[contraseña] [varchar](100) NOT NULL,
+ CONSTRAINT [PK_usuario] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[cajachica_egresos]  WITH CHECK ADD  CONSTRAINT [FK_cajachica_egresos_egresos] FOREIGN KEY([egresos_id])
+REFERENCES [dbo].[egresos] ([id])
+GO
+ALTER TABLE [dbo].[cajachica_egresos] CHECK CONSTRAINT [FK_cajachica_egresos_egresos]
+GO
+ALTER TABLE [dbo].[cajachica_egresos]  WITH CHECK ADD  CONSTRAINT [FK_cajachica_egresos_registrocajachica] FOREIGN KEY([registrocajachica])
+REFERENCES [dbo].[registrocajachica] ([id])
+GO
+ALTER TABLE [dbo].[cajachica_egresos] CHECK CONSTRAINT [FK_cajachica_egresos_registrocajachica]
+GO
+ALTER TABLE [dbo].[egresos]  WITH CHECK ADD  CONSTRAINT [FK_egresos_area] FOREIGN KEY([area_id])
+REFERENCES [dbo].[area] ([id])
+GO
+ALTER TABLE [dbo].[egresos] CHECK CONSTRAINT [FK_egresos_area]
+GO
+ALTER TABLE [dbo].[egresos]  WITH CHECK ADD  CONSTRAINT [FK_egresos_taller] FOREIGN KEY([taller_id])
+REFERENCES [dbo].[taller] ([id])
+GO
+ALTER TABLE [dbo].[egresos] CHECK CONSTRAINT [FK_egresos_taller]
+GO
+ALTER TABLE [dbo].[ingresos_egresos]  WITH CHECK ADD  CONSTRAINT [FK_ingresos_egresos_egresos] FOREIGN KEY([egresos_id])
+REFERENCES [dbo].[egresos] ([id])
+GO
+ALTER TABLE [dbo].[ingresos_egresos] CHECK CONSTRAINT [FK_ingresos_egresos_egresos]
+GO
+ALTER TABLE [dbo].[ingresos_egresos]  WITH CHECK ADD  CONSTRAINT [FK_ingresos_egresos_registroingreso] FOREIGN KEY([registroingreso_id])
+REFERENCES [dbo].[registroingreso] ([id])
+GO
+ALTER TABLE [dbo].[ingresos_egresos] CHECK CONSTRAINT [FK_ingresos_egresos_registroingreso]
+GO
+ALTER TABLE [dbo].[registrocajachica]  WITH CHECK ADD  CONSTRAINT [FK_registrocajachica_tipounidad] FOREIGN KEY([tipounidad_id])
+REFERENCES [dbo].[tipounidad] ([id])
+GO
+ALTER TABLE [dbo].[registrocajachica] CHECK CONSTRAINT [FK_registrocajachica_tipounidad]
+GO
+ALTER TABLE [dbo].[registroingreso]  WITH CHECK ADD  CONSTRAINT [FK_registroingreso_tipounidad] FOREIGN KEY([tipounidad_id])
+REFERENCES [dbo].[tipounidad] ([id])
+GO
+ALTER TABLE [dbo].[registroingreso] CHECK CONSTRAINT [FK_registroingreso_tipounidad]
+GO
