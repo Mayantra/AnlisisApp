@@ -1,12 +1,10 @@
 ﻿using System;
-
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
-using System.Drawing;
+using System.Windows.Forms;
 
 namespace Bodega
 {
-    
+
     public partial class Form1 : Form
     {
         //Conectamos a la Base de datos
@@ -32,16 +30,16 @@ namespace Bodega
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 40, 40));
         }
 
-        
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         public void pictureBox2_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -91,5 +89,5 @@ namespace Bodega
 
         }
     }
-  
+
 }

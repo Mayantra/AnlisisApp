@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System;
 using System.Data.SqlClient;
 using System.IO;
-using iTextSharp.text.pdf;
-using iTextSharp.text;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace Bodega
 {
@@ -99,7 +92,7 @@ namespace Bodega
 
         private void TxFecha_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -246,8 +239,8 @@ namespace Bodega
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            String nombre_copia= "Bd_INTECAP Fecha " + DateTime.Now.ToString("dd_MM_yyyy") + " Hora " + DateTime.Now.ToString("hh_mm_ss");
-            string comando_consulta = "BACKUP DATABASE [INTECAP] TO  DISK = N'C:\\BackupIntecap\\"+ nombre_copia + ".bak' WITH NOFORMAT, NOINIT,  NAME = N'INTECAP-Full Database Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10 ";
+            String nombre_copia = "Bd_INTECAP Fecha " + DateTime.Now.ToString("dd_MM_yyyy") + " Hora " + DateTime.Now.ToString("hh_mm_ss");
+            string comando_consulta = "BACKUP DATABASE [INTECAP] TO  DISK = N'C:\\BackupIntecap\\" + nombre_copia + ".bak' WITH NOFORMAT, NOINIT,  NAME = N'INTECAP-Full Database Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10 ";
             SqlCommand cmd = new SqlCommand(comando_consulta, cn);
             try
             {

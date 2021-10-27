@@ -1,17 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Bodega
 {
-    
+
     public partial class Form2 : Form
     {
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
@@ -59,7 +52,7 @@ namespace Bodega
             Registros registro = new Registros();
             registro.Show();
         }
-        
+
 
         private void BtCajaC_Click_1(object sender, EventArgs e)
         {
@@ -99,7 +92,7 @@ namespace Bodega
 
         private void TxFecha_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
