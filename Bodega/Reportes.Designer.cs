@@ -215,7 +215,7 @@ namespace Bodega
             this.Generar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Generar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Generar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(226)))), ((int)(((byte)(160)))));
-            this.Generar.Location = new System.Drawing.Point(1074, 76);
+            this.Generar.Location = new System.Drawing.Point(1074, 87);
             this.Generar.Name = "Generar";
             this.Generar.Size = new System.Drawing.Size(171, 57);
             this.Generar.TabIndex = 69;
@@ -230,7 +230,7 @@ namespace Bodega
             this.Guardar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Guardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(226)))), ((int)(((byte)(160)))));
-            this.Guardar.Location = new System.Drawing.Point(1074, 139);
+            this.Guardar.Location = new System.Drawing.Point(1074, 148);
             this.Guardar.Name = "Guardar";
             this.Guardar.Size = new System.Drawing.Size(171, 54);
             this.Guardar.TabIndex = 28;
