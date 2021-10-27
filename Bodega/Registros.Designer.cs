@@ -29,10 +29,7 @@ namespace Bodega
         /// </summary>
         private void InitializeComponent()
         {
-<<<<<<< HEAD
             this.components = new System.ComponentModel.Container();
-=======
->>>>>>> ded203d ("reporte")
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TxAdmin = new System.Windows.Forms.Label();
@@ -86,9 +83,10 @@ namespace Bodega
             this.TxAdmin.AutoSize = true;
             this.TxAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(174)))), ((int)(((byte)(2)))));
             this.TxAdmin.Font = new System.Drawing.Font("Verdana", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxAdmin.Location = new System.Drawing.Point(129, 57);
+            this.TxAdmin.Location = new System.Drawing.Point(172, 70);
+            this.TxAdmin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.TxAdmin.Name = "TxAdmin";
-            this.TxAdmin.Size = new System.Drawing.Size(112, 32);
+            this.TxAdmin.Size = new System.Drawing.Size(140, 41);
             this.TxAdmin.TabIndex = 20;
             this.TxAdmin.Text = "Admin";
             // 
@@ -97,14 +95,10 @@ namespace Bodega
             this.TxFecha.AutoSize = true;
             this.TxFecha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(174)))), ((int)(((byte)(2)))));
             this.TxFecha.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
             this.TxFecha.Location = new System.Drawing.Point(180, 111);
             this.TxFecha.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-=======
-            this.TxFecha.Location = new System.Drawing.Point(131, 100);
->>>>>>> ded203d ("reporte")
             this.TxFecha.Name = "TxFecha";
-            this.TxFecha.Size = new System.Drawing.Size(108, 16);
+            this.TxFecha.Size = new System.Drawing.Size(137, 20);
             this.TxFecha.TabIndex = 21;
             this.TxFecha.Text = "dd/mm/aaaa";
             this.TxFecha.Click += new System.EventHandler(this.TxFecha_Click);
@@ -114,9 +108,10 @@ namespace Bodega
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.BackgroundImage = global::Bodega.Properties.Resources.Trazado_1;
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Location = new System.Drawing.Point(263, 57);
+            this.pictureBox3.Location = new System.Drawing.Point(351, 70);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(1025, 637);
+            this.pictureBox3.Size = new System.Drawing.Size(1367, 784);
             this.pictureBox3.TabIndex = 22;
             this.pictureBox3.TabStop = false;
             // 
@@ -128,9 +123,10 @@ namespace Bodega
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(128, 536);
+            this.button1.Location = new System.Drawing.Point(171, 660);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(87, 97);
+            this.button1.Size = new System.Drawing.Size(116, 119);
             this.button1.TabIndex = 19;
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -143,9 +139,10 @@ namespace Bodega
             this.BtReporte.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtReporte.FlatAppearance.BorderSize = 0;
             this.BtReporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtReporte.Location = new System.Drawing.Point(1, 417);
+            this.BtReporte.Location = new System.Drawing.Point(1, 513);
+            this.BtReporte.Margin = new System.Windows.Forms.Padding(4);
             this.BtReporte.Name = "BtReporte";
-            this.BtReporte.Size = new System.Drawing.Size(240, 70);
+            this.BtReporte.Size = new System.Drawing.Size(320, 86);
             this.BtReporte.TabIndex = 18;
             this.BtReporte.UseVisualStyleBackColor = false;
             this.BtReporte.Click += new System.EventHandler(this.BtReporte_Click);
@@ -158,9 +155,10 @@ namespace Bodega
             this.BtCon.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtCon.FlatAppearance.BorderSize = 0;
             this.BtCon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtCon.Location = new System.Drawing.Point(1, 347);
+            this.BtCon.Location = new System.Drawing.Point(1, 427);
+            this.BtCon.Margin = new System.Windows.Forms.Padding(4);
             this.BtCon.Name = "BtCon";
-            this.BtCon.Size = new System.Drawing.Size(240, 70);
+            this.BtCon.Size = new System.Drawing.Size(320, 86);
             this.BtCon.TabIndex = 17;
             this.BtCon.UseVisualStyleBackColor = false;
             this.BtCon.Click += new System.EventHandler(this.BtCon_Click);
@@ -173,9 +171,10 @@ namespace Bodega
             this.BtEgresos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtEgresos.FlatAppearance.BorderSize = 0;
             this.BtEgresos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtEgresos.Location = new System.Drawing.Point(0, 277);
+            this.BtEgresos.Location = new System.Drawing.Point(0, 341);
+            this.BtEgresos.Margin = new System.Windows.Forms.Padding(4);
             this.BtEgresos.Name = "BtEgresos";
-            this.BtEgresos.Size = new System.Drawing.Size(240, 70);
+            this.BtEgresos.Size = new System.Drawing.Size(320, 86);
             this.BtEgresos.TabIndex = 16;
             this.BtEgresos.UseVisualStyleBackColor = false;
             this.BtEgresos.Click += new System.EventHandler(this.BtEgresos_Click);
@@ -188,9 +187,10 @@ namespace Bodega
             this.BtCajaC.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtCajaC.FlatAppearance.BorderSize = 0;
             this.BtCajaC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtCajaC.Location = new System.Drawing.Point(1, 207);
+            this.BtCajaC.Location = new System.Drawing.Point(1, 255);
+            this.BtCajaC.Margin = new System.Windows.Forms.Padding(4);
             this.BtCajaC.Name = "BtCajaC";
-            this.BtCajaC.Size = new System.Drawing.Size(240, 70);
+            this.BtCajaC.Size = new System.Drawing.Size(320, 86);
             this.BtCajaC.TabIndex = 15;
             this.BtCajaC.UseVisualStyleBackColor = false;
             this.BtCajaC.Click += new System.EventHandler(this.BtCajaC_Click);
@@ -203,9 +203,10 @@ namespace Bodega
             this.BtRegistros.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtRegistros.FlatAppearance.BorderSize = 0;
             this.BtRegistros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtRegistros.Location = new System.Drawing.Point(0, 137);
+            this.BtRegistros.Location = new System.Drawing.Point(0, 169);
+            this.BtRegistros.Margin = new System.Windows.Forms.Padding(4);
             this.BtRegistros.Name = "BtRegistros";
-            this.BtRegistros.Size = new System.Drawing.Size(263, 70);
+            this.BtRegistros.Size = new System.Drawing.Size(351, 86);
             this.BtRegistros.TabIndex = 13;
             this.BtRegistros.UseVisualStyleBackColor = false;
             this.BtRegistros.Click += new System.EventHandler(this.BtRegistros_Click);
@@ -215,9 +216,10 @@ namespace Bodega
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = global::Bodega.Properties.Resources.Rectángulo_22;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(10, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(13, 15);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(774, 696);
+            this.pictureBox1.Size = new System.Drawing.Size(1032, 857);
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -227,9 +229,10 @@ namespace Bodega
             this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(174)))), ((int)(((byte)(2)))));
             this.pictureBox2.BackgroundImage = global::Bodega.Properties.Resources.user_shape_icon_icons_com_73346;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(33, 29);
+            this.pictureBox2.Location = new System.Drawing.Point(44, 36);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(85, 87);
+            this.pictureBox2.Size = new System.Drawing.Size(113, 107);
             this.pictureBox2.TabIndex = 24;
             this.pictureBox2.TabStop = false;
             // 
@@ -240,10 +243,11 @@ namespace Bodega
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(1222, 12);
+            this.button2.Location = new System.Drawing.Point(1629, 15);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button2.Size = new System.Drawing.Size(66, 14);
+            this.button2.Size = new System.Drawing.Size(88, 17);
             this.button2.TabIndex = 25;
             this.button2.UseMnemonic = false;
             this.button2.UseVisualStyleBackColor = false;
@@ -256,10 +260,11 @@ namespace Bodega
             this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(1150, 12);
+            this.button3.Location = new System.Drawing.Point(1533, 15);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button3.Size = new System.Drawing.Size(66, 14);
+            this.button3.Size = new System.Drawing.Size(88, 17);
             this.button3.TabIndex = 26;
             this.button3.UseMnemonic = false;
             this.button3.UseVisualStyleBackColor = false;
@@ -270,15 +275,11 @@ namespace Bodega
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(226)))), ((int)(((byte)(160)))));
             this.label1.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
             this.label1.Location = new System.Drawing.Point(143, 21);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-=======
-            this.label1.Location = new System.Drawing.Point(18, 17);
->>>>>>> ded203d ("reporte")
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label1.Size = new System.Drawing.Size(113, 25);
+            this.label1.Size = new System.Drawing.Size(147, 32);
             this.label1.TabIndex = 28;
             this.label1.Text = ":Nombre";
             // 
@@ -287,25 +288,20 @@ namespace Bodega
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(226)))), ((int)(((byte)(160)))));
             this.label3.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
             this.label3.Location = new System.Drawing.Point(130, 84);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-=======
-            this.label3.Location = new System.Drawing.Point(18, 68);
->>>>>>> ded203d ("reporte")
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label3.Size = new System.Drawing.Size(125, 25);
+            this.label3.Size = new System.Drawing.Size(160, 32);
             this.label3.TabIndex = 32;
             this.label3.Text = ":Cantidad";
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Location = new System.Drawing.Point(275, 70);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Location = new System.Drawing.Point(367, 86);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(999, 336);
+            this.panel1.Size = new System.Drawing.Size(1332, 414);
             this.panel1.TabIndex = 34;
             // 
             // dataGridView1
@@ -325,15 +321,14 @@ namespace Bodega
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(2, 2);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.RowTemplate.Height = 50;
-            this.dataGridView1.Size = new System.Drawing.Size(995, 332);
+            this.dataGridView1.Size = new System.Drawing.Size(1327, 408);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -342,10 +337,9 @@ namespace Bodega
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(226)))), ((int)(((byte)(160)))));
             this.label2.Font = new System.Drawing.Font("Verdana", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(20, 180);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(27, 222);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(205, 26);
+            this.label2.Size = new System.Drawing.Size(262, 34);
             this.label2.TabIndex = 36;
             this.label2.Text = "Tipo de unidad:";
             // 
@@ -354,62 +348,28 @@ namespace Bodega
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(226)))), ((int)(((byte)(160)))));
             this.label4.Font = new System.Drawing.Font("Verdana", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
             this.label4.Location = new System.Drawing.Point(171, 153);
-=======
-            this.label4.Location = new System.Drawing.Point(20, 124);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
->>>>>>> ded203d ("reporte")
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 26);
+            this.label4.Size = new System.Drawing.Size(118, 34);
             this.label4.TabIndex = 37;
             this.label4.Text = "Fecha:";
             // 
-<<<<<<< HEAD
             // txtCantidad
             // 
             this.txtCantidad.Font = new System.Drawing.Font("Verdana", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCantidad.Location = new System.Drawing.Point(300, 81);
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(374, 40);
-=======
-            // txtNombre
-            // 
-            this.txtNombre.Font = new System.Drawing.Font("Verdana", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(143, 15);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(2);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(255, 34);
-            this.txtNombre.TabIndex = 39;
-            // 
-            // txtCantidad
-            // 
-            this.txtCantidad.Font = new System.Drawing.Font("Verdana", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCantidad.Location = new System.Drawing.Point(143, 66);
-            this.txtCantidad.Margin = new System.Windows.Forms.Padding(2);
-            this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(255, 34);
->>>>>>> ded203d ("reporte")
             this.txtCantidad.TabIndex = 40;
             // 
             // CBTipoUnidad
             // 
             this.CBTipoUnidad.Font = new System.Drawing.Font("Verdana", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBTipoUnidad.FormattingEnabled = true;
-<<<<<<< HEAD
             this.CBTipoUnidad.Location = new System.Drawing.Point(300, 219);
-=======
-            this.CBTipoUnidad.Items.AddRange(new object[] {
-            "Bateria de cocina",
-            "Set de cubiertos",
-            "Utensilios de limpieza"});
-            this.CBTipoUnidad.Location = new System.Drawing.Point(225, 178);
-            this.CBTipoUnidad.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> ded203d ("reporte")
             this.CBTipoUnidad.Name = "CBTipoUnidad";
-            this.CBTipoUnidad.Size = new System.Drawing.Size(282, 34);
+            this.CBTipoUnidad.Size = new System.Drawing.Size(375, 40);
             this.CBTipoUnidad.TabIndex = 41;
-            this.CBTipoUnidad.SelectedIndexChanged += new System.EventHandler(this.CBTipoUnidad_SelectedIndexChanged);
             // 
             // tipounidadBindingSource1
             // 
@@ -426,35 +386,11 @@ namespace Bodega
             this.dateTimePicker1.CustomFormat = "yyyy-MM-dd";
             this.dateTimePicker1.Font = new System.Drawing.Font("Verdana", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-<<<<<<< HEAD
             this.dateTimePicker1.Location = new System.Drawing.Point(300, 147);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(375, 40);
             this.dateTimePicker1.TabIndex = 43;
             // 
-=======
-            this.dateTimePicker1.Location = new System.Drawing.Point(143, 119);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(256, 34);
-            this.dateTimePicker1.TabIndex = 43;
-            // 
-            // BtLimpiar
-            // 
-            this.BtLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(226)))), ((int)(((byte)(160)))));
-            this.BtLimpiar.BackgroundImage = global::Bodega.Properties.Resources.Grupo_9;
-            this.BtLimpiar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtLimpiar.FlatAppearance.BorderSize = 0;
-            this.BtLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtLimpiar.Location = new System.Drawing.Point(674, 153);
-            this.BtLimpiar.Name = "BtLimpiar";
-            this.BtLimpiar.Size = new System.Drawing.Size(208, 63);
-            this.BtLimpiar.TabIndex = 50;
-            this.BtLimpiar.UseVisualStyleBackColor = false;
-            this.BtLimpiar.Click += new System.EventHandler(this.BtLimpiar_Click);
-            // 
->>>>>>> ded203d ("reporte")
             // BtAgregar
             // 
             this.BtAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(226)))), ((int)(((byte)(160)))));
@@ -463,14 +399,10 @@ namespace Bodega
             this.BtAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtAgregar.FlatAppearance.BorderSize = 0;
             this.BtAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-<<<<<<< HEAD
             this.BtAgregar.Location = new System.Drawing.Point(892, 109);
             this.BtAgregar.Margin = new System.Windows.Forms.Padding(4);
-=======
-            this.BtAgregar.Location = new System.Drawing.Point(674, 31);
->>>>>>> ded203d ("reporte")
             this.BtAgregar.Name = "BtAgregar";
-            this.BtAgregar.Size = new System.Drawing.Size(208, 63);
+            this.BtAgregar.Size = new System.Drawing.Size(277, 78);
             this.BtAgregar.TabIndex = 49;
             this.BtAgregar.UseVisualStyleBackColor = false;
             this.BtAgregar.Click += new System.EventHandler(this.BtAgregar_Click);
@@ -487,16 +419,9 @@ namespace Bodega
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtCantidad);
             this.groupBox1.Controls.Add(this.label4);
-<<<<<<< HEAD
             this.groupBox1.Location = new System.Drawing.Point(370, 513);
-=======
-            this.groupBox1.Controls.Add(this.txtNombre);
-            this.groupBox1.Location = new System.Drawing.Point(278, 417);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
->>>>>>> ded203d ("reporte")
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(997, 259);
+            this.groupBox1.Size = new System.Drawing.Size(1329, 319);
             this.groupBox1.TabIndex = 51;
             this.groupBox1.TabStop = false;
             // 
@@ -541,10 +466,10 @@ namespace Bodega
             // 
             // Registros
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(12)))), ((int)(((byte)(37)))));
-            this.ClientSize = new System.Drawing.Size(1300, 720);
+            this.ClientSize = new System.Drawing.Size(1733, 886);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button3);
@@ -561,6 +486,7 @@ namespace Bodega
             this.Controls.Add(this.BtRegistros);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Registros";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "8";

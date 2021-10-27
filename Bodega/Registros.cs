@@ -233,7 +233,6 @@ namespace Bodega
 
         }
 
-<<<<<<< HEAD
         private void TxFecha_Click(object sender, EventArgs e)
         {
             
@@ -242,11 +241,6 @@ namespace Bodega
         private void timer1_Tick(object sender, EventArgs e)
         {
             TxFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
-=======
-        private void CBTipoUnidad_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
->>>>>>> ded203d ("reporte")
         }
     }
 }

@@ -14,11 +14,7 @@ namespace Bodega
     public partial class Egresos : Form
     {
         BaseDeDatos bd = new BaseDeDatos();
-<<<<<<< HEAD
         SqlConnection cn = new SqlConnection(@"Data Source=localhost;initial catalog=INTECAP;Integrated Security=True");
-=======
-        SqlConnection cn = new SqlConnection(@"Data Source=ZACARIAS;initial catalog=INTECAP;Integrated Security=True");
->>>>>>> ded203d ("reporte")
         
         private void Egresos_Load(object sender, EventArgs e)
         {
@@ -395,11 +391,6 @@ namespace Bodega
         private void timer1_Tick(object sender, EventArgs e)
         {
             TxFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
-        }
-
-        private void BtAgregar_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

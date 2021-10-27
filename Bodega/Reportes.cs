@@ -1,26 +1,28 @@
-﻿using iTextSharp.text;
-using iTextSharp.text.pdf;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.IO;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
 
 namespace Bodega
 {
     public partial class Reportes : Form
     {
-
-        //Inicializacion Base de datos
         BaseDeDatos bd = new BaseDeDatos();
+        SqlConnection cn = new SqlConnection(@"Data Source=localhost;initial catalog=INTECAP;Integrated Security=True");
 
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+
+
         private static extern IntPtr CreateRoundRectRgn
        (
            int nLeftRect,     // x-coordinate of upper-left corner
@@ -37,6 +39,7 @@ namespace Bodega
             TxFecha.Text = DateTime.Now.ToString();
             this.FormBorderStyle = FormBorderStyle.None;
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 40, 40));
+            cbxTablas.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void BtSalir_Click(object sender, EventArgs e)
@@ -89,7 +92,6 @@ namespace Bodega
             login.Show();
         }
 
-<<<<<<< HEAD
         private void Reportes_Load(object sender, EventArgs e)
         {
 
@@ -103,58 +105,15 @@ namespace Bodega
         private void timer1_Tick(object sender, EventArgs e)
         {
             TxFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
-=======
+        }
+
         private void button2_Click(object sender, EventArgs e)
-        {
-            try
-            {
-
-                if (CBTipoUnidad.Text == "INGRESOS")
-                {
-                    dataGridView1.DataSource = bd.SelectDataTable("SELECT r.id, r.nombre, r.cantidad, r.fecha ,e.nombre FROM registroingreso r INNER JOIN tipounidad e ON e.id = r.tipounidad_id where fecha between  '" + dateTimePicker1.Text + "' and '" + dateTimePicker2.Text + "';");
-
-                }
-                else
-                {
-                    if (CBTipoUnidad.Text == "EGRESOS")
-                    {
-                        dataGridView1.DataSource = bd.SelectDataTable("SELECT r.id, r.receptor, r.fecha,r.observaciones, a.nombre, t.nombre FROM egresos r INNER JOIN area a ON r.area_id=a.id INNER JOIN taller t ON r.taller_id=t.id where fecha between  '" + dateTimePicker1.Text + "' and '" + dateTimePicker2.Text + "';");
-
-                    }
-                    else
-                    {
-                        if (CBTipoUnidad.Text == "CAJA CHICA")
-                        {
-                            dataGridView1.DataSource = bd.SelectDataTable("SELECT r.id, r.nombre, r.cantidad, r.fecha, e.nombre FROM registrocajachica r INNER JOIN tipounidad e ON r.tipounidad_id=e.id where fecha between  '" + dateTimePicker1.Text + "' and '" + dateTimePicker2.Text + "';");
-
-                        }
-                    }
-                }
-                
-            }
-            catch
-            {
-                MessageBox.Show("Error" + e);
-            }
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-       
-
-        private void btnPdf_Click_1(object sender, EventArgs e)
         {
             if (dataGridView1.Rows.Count > 0)
             {
                 SaveFileDialog sfd = new SaveFileDialog();
                 sfd.Filter = "PDF (*.pdf)|*.pdf";
-                sfd.FileName = "Reporte de "+dateTimePicker1.Text+" A "+dateTimePicker2.Text+" "+ CBTipoUnidad.Text+".pdf";
+                sfd.FileName = "Reporte de " + dateTimePicker1.Text + " A " + dateTimePicker2.Text + " " + cbxTablas.Text + ".pdf";
                 bool fileError = false;
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
@@ -216,7 +175,90 @@ namespace Bodega
             {
                 MessageBox.Show("No se pudo Guardar el Documento");
             }
->>>>>>> ded203d ("reporte")
+        }
+
+        private void Generar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                if (cbxTablas.Text == "EGRESOS DE CAJA CHICA")
+                {
+                    dataGridView1.DataSource = bd.SelectDataTable("SELECT i.nombre as 'Articulo', c.cantidad, e.receptor,e.fecha,e.observaciones, a.nombre as 'Area', t.nombre as 'Taller' " +
+                        " FROM cajachica_egresos c INNER JOIN egresos e ON e.id=egresos_id INNER JOIN registrocajachica i ON i.id=registrocajachica_id " +
+                        " INNER JOIN area a ON a.id=e.area_id INNER JOIN taller t ON t.id=e.taller_id" +
+                        " where e.fecha between  '" + dateTimePicker1.Text + "' and '" + dateTimePicker2.Text + "';");
+
+                }
+                else
+                {
+                    if (cbxTablas.Text == "EGRESOS DE INGRESOS")
+                    {
+                        dataGridView1.DataSource = bd.SelectDataTable("SELECT i.nombre as 'Articulo', c.cantidad, e.receptor,e.fecha,e.observaciones, a.nombre as 'Area', t.nombre as 'Taller' " +
+                            " FROM ingreso_egresos c INNER JOIN egresos e ON e.id=egresos_id INNER JOIN registroingreso i ON i.id=registroingreso_id INNER JOIN area a ON a.id=e.area_id INNER JOIN taller t ON t.id=e.taller_id" +
+                            " where e.fecha between  '" + dateTimePicker1.Text + "' and '" + dateTimePicker2.Text + "';");
+
+                    }
+                    else
+                    {
+                        if (cbxTablas.Text == "HISTORIAL DE INGRESOS DE CAJA CHICA")
+                        {
+                            dataGridView1.DataSource = bd.SelectDataTable(" SELECT  b.id,b.nombre,b.cantidad,b.fecha, t.nombre as 'Tipo de Unidad' FROM historialcajachica b Inner join tipounidad t ON t.id=b.tipounidad_id " +
+                                "where b.fecha between  '" + dateTimePicker1.Text + "' and '" + dateTimePicker2.Text + "';");
+
+                        }
+                        else
+                        {
+                            if (cbxTablas.Text == "HISTORIAL DE INGRESOS")
+                            {
+                                dataGridView1.DataSource = bd.SelectDataTable("SELECT  b.id,b.nombre,b.cantidad,b.fecha, t.nombre as 'Tipo de Unidad' FROM historialingreso b Inner join tipounidad t ON t.id=b.tipounidad_id " +
+                                    " where b.fecha between  '" + dateTimePicker1.Text + "' and '" + dateTimePicker2.Text + "';");
+
+                            }
+                            else
+                            {
+                                if (cbxTablas.Text == "INVENTARIO DE CAJACHICA")
+                                {
+                                    dataGridView1.DataSource = bd.SelectDataTable("SELECT rc.id, rc.nombre, rc.cantidad, rc.fecha, t.nombre FROM registrocajachica rc INNER JOIN tipounidad t ON t.id=rc.tipounidad_id " +
+                                        "where rc.fecha between  '" + dateTimePicker1.Text + "' and '" + dateTimePicker2.Text + "';");
+
+                                }
+                                else
+                                {
+                                    if (cbxTablas.Text == "INVENTARIO DE EGRESOS")
+                                    {
+                                        dataGridView1.DataSource = bd.SelectDataTable("SELECT ri.id, ri.nombre, ri.cantidad, ri.fecha, t.nombre FROM registroingreso ri INNER JOIN tipounidad t ON t.id=ri.tipounidad_id " +
+                                            " where ri.fecha between  '" + dateTimePicker1.Text + "' and '" + dateTimePicker2.Text + "';");
+
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Error" + e);
+            }
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            String nombre_copia= "Bd_INTECAP Fecha " + DateTime.Now.ToString("dd_MM_yyyy") + " Hora " + DateTime.Now.ToString("hh_mm_ss");
+            string comando_consulta = "BACKUP DATABASE [INTECAP] TO  DISK = N'C:\\BackupIntecap\\"+ nombre_copia + ".bak' WITH NOFORMAT, NOINIT,  NAME = N'INTECAP-Full Database Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10 ";
+            SqlCommand cmd = new SqlCommand(comando_consulta, cn);
+            try
+            {
+                cn.Open();
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("La copia ha sido creada Satisfactoriamente");
+            }
+            catch
+            {
+                MessageBox.Show("Error, Ruta no encontrada");
+            }
         }
     }
 }

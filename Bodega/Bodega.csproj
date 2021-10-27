@@ -37,14 +37,10 @@
       <HintPath>..\packages\BouncyCastle.1.8.6.1\lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
     <Reference Include="ConexcionBD">
-<<<<<<< HEAD
-      <HintPath>..\..\..\..\Downloads\ConexcionBD.dll</HintPath>
-=======
-      <HintPath>..\..\..\..\Descargas\ConexcionBD.dll</HintPath>
+      <HintPath>..\..\..\ConexcionBD.dll</HintPath>
     </Reference>
     <Reference Include="itextsharp, Version=5.5.13.2, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <HintPath>..\packages\iTextSharp.5.5.13.2\lib\itextsharp.dll</HintPath>
->>>>>>> ded203d ("reporte")
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -244,7 +240,6 @@
     <None Include="Resources\Grupo 9.png" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <None Include="Resources\Grupo 91.png" />
   </ItemGroup>
   <ItemGroup>
@@ -261,12 +256,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\btver.png" />
-=======
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\Grupo 71.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Grupo 81.png" />
->>>>>>> ded203d ("reporte")
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btback.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

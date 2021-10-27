@@ -73,6 +73,16 @@ namespace Bodega.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap btback {
+            get {
+                object obj = ResourceManager.GetObject("btback", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap btobt {
             get {
                 object obj = ResourceManager.GetObject("btobt", resourceCulture);

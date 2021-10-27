@@ -23,11 +23,7 @@ namespace Bodega
         }
 
         BaseDeDatos bd = new BaseDeDatos();
-<<<<<<< HEAD
         SqlConnection cn = new SqlConnection(@"Data Source=localhost;initial catalog=INTECAP;Integrated Security=True");
-=======
-        SqlConnection cn = new SqlConnection(@"Data Source=ZACARIAS;initial catalog=INTECAP;Integrated Security=True");
->>>>>>> ded203d ("reporte")
 
 
         private void CajaChica_Load(object sender, EventArgs e)
