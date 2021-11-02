@@ -157,14 +157,16 @@ namespace Bodega
             // 
             // txtReceptor
             // 
+            this.txtReceptor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtReceptor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txtReceptor.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtReceptor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtReceptor.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtReceptor.Location = new System.Drawing.Point(1219, 95);
+            this.txtReceptor.Location = new System.Drawing.Point(1219, 104);
             this.txtReceptor.Margin = new System.Windows.Forms.Padding(4);
-            this.txtReceptor.Multiline = true;
             this.txtReceptor.Name = "txtReceptor";
             this.txtReceptor.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtReceptor.Size = new System.Drawing.Size(467, 41);
+            this.txtReceptor.Size = new System.Drawing.Size(467, 32);
             this.txtReceptor.TabIndex = 34;
             // 
             // label2

@@ -436,6 +436,7 @@ namespace Bodega
             this.txtNombre.Size = new System.Drawing.Size(375, 40);
             this.txtNombre.TabIndex = 51;
             this.txtNombre.SelectedIndexChanged += new System.EventHandler(this.txtNombre_SelectedIndexChanged);
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreMAYUSCULAS);
             // 
             // registroingresoBindingSource
             // 

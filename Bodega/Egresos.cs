@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -9,19 +10,20 @@ namespace Bodega
     {
         BaseDeDatos bd = new BaseDeDatos();
         SqlConnection cn = new SqlConnection(@"Data Source=localhost;initial catalog=INTECAP;Integrated Security=True");
-
+        
         private void Egresos_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'iNTECAPDataSet1.area' Puede moverla o quitarla según sea necesario.
             this.areaTableAdapter.Fill(this.iNTECAPDataSet1.area);
             // TODO: esta línea de código carga datos en la tabla 'iNTECAPDataSet1.taller' Puede moverla o quitarla según sea necesario.
             this.tallerTableAdapter.Fill(this.iNTECAPDataSet1.taller);
-
+            autocompletar();
         }
 
         public Egresos()
         {
             InitializeComponent();
+            //autocompletar();
             timer1.Start();
             TxFecha.Text = DateTime.Now.ToString();
             CTaller.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -385,6 +387,20 @@ namespace Bodega
         private void timer1_Tick(object sender, EventArgs e)
         {
             TxFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
+        }
+
+        DataTable datos = new DataTable();
+        void autocompletar()
+        {
+            AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
+            SqlDataAdapter adaptador = new SqlDataAdapter("SELECT * FROM receptor", cn);
+            adaptador.Fill(datos);
+
+            for (int i = 0; i < datos.Rows.Count; i++)
+            {
+                lista.Add(datos.Rows[i]["nombreR"].ToString());
+            }
+            txtReceptor.AutoCompleteCustomSource = lista;
         }
     }
 }

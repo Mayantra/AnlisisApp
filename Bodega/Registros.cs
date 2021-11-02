@@ -44,6 +44,8 @@ namespace Bodega
 
         }
 
+
+
         public void CargarDatos()
         {
 
@@ -234,6 +236,11 @@ namespace Bodega
         private void timer1_Tick(object sender, EventArgs e)
         {
             TxFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
+        }
+
+        private void txtNombreMAYUSCULAS(object sender, KeyPressEventArgs e) 
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
         }
     }
 }
