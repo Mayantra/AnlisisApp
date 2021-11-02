@@ -37,7 +37,7 @@
       <HintPath>..\packages\BouncyCastle.1.8.6.1\lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
     <Reference Include="ConexcionBD">
-      <HintPath>..\..\..\ConexcionBD.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\Descargas\Cadena de conexion\ConexcionBD.dll</HintPath>
     </Reference>
     <Reference Include="itextsharp, Version=5.5.13.2, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <HintPath>..\packages\iTextSharp.5.5.13.2\lib\itextsharp.dll</HintPath>

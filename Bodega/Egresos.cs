@@ -1,13 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace Bodega
 {
@@ -15,7 +9,7 @@ namespace Bodega
     {
         BaseDeDatos bd = new BaseDeDatos();
         SqlConnection cn = new SqlConnection(@"Data Source=localhost;initial catalog=INTECAP;Integrated Security=True");
-        
+
         private void Egresos_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'iNTECAPDataSet1.area' Puede moverla o quitarla según sea necesario.
@@ -38,7 +32,7 @@ namespace Bodega
 
         public void Seleccionar()
         {
-            String dato = CBTablas.Text; 
+            String dato = CBTablas.Text;
             if (dato == "Caja_Chica")
             {
                 CArticulo.Items.Clear();
@@ -49,19 +43,19 @@ namespace Bodega
                 CArticulo.Items.Clear();
                 CargarDatos2();
             }
-            
+
 
         }
 
         public void CargarDatos()
         {
-            
+
             SqlCommand cmd = new SqlCommand("SELECT id, nombre from dbo.registrocajachica", cn);
             cn.Open();
             SqlDataReader registro = cmd.ExecuteReader();
             while (registro.Read())
             {
-                CArticulo.Items.Add(registro["nombre"].ToString());  
+                CArticulo.Items.Add(registro["nombre"].ToString());
             }
             cn.Close();
 
@@ -129,7 +123,7 @@ namespace Bodega
         {
             try
             {
-                if(CBTablas.SelectedIndex == 0)
+                if (CBTablas.SelectedIndex == 0)
                 {
                     cn.Open();
                     string cantidad = "select cantidad from dbo.registrocajachica where nombre = '" + (CArticulo.Text) + "'; ";
@@ -147,15 +141,15 @@ namespace Bodega
                     cn.Close();
                     txtExistencia.Text = Rcantidad.ToString();
                 }
-                
+
             }
             catch (Exception)
             {
 
                 throw;
             }
-            
-            
+
+
         }
 
 
@@ -178,11 +172,11 @@ namespace Bodega
 
         private void BtAgregar_Click(object sender, EventArgs e)
         {
-            if(txtExistencia.Text == "")
+            if (txtExistencia.Text == "")
             {
                 MessageBox.Show("Por favor seleccione una tabla");
             }
-            else if(txtReceptor.Text == "")
+            else if (txtReceptor.Text == "")
             {
                 MessageBox.Show("Por favor, llene el campo de Receptor");
             }
@@ -190,7 +184,7 @@ namespace Bodega
             {
                 MessageBox.Show("Por favor, llene el campo de Cantidad");
             }
-            else 
+            else
             {
                 if (txtExistencia.TextLength > 0)
                 {
@@ -207,12 +201,12 @@ namespace Bodega
                     mostrarDatos();
                     textBox2.Clear();
                 }
-                
+
                 else
                 {
                     MessageBox.Show("No hay existencias del articulo seleccionado");
                 }
-            }            
+            }
         }
 
         public void mostrarDatos()
@@ -228,7 +222,7 @@ namespace Bodega
                 dataGridViewTablas.Rows[n].Cells[5].Value = arrryArticulo[n];
                 dataGridViewTablas.Rows[n].Cells[6].Value = arrayObservaciones[n];
                 dataGridViewTablas.Rows[n].Cells[7].Value = cantidad[n];
-                
+
             }
             catch (Exception)
             {
@@ -273,50 +267,50 @@ namespace Bodega
 
                 cn.Close();
                 for (int i = 0; i < arrayIdTabla.Count; i++)
+                {
+                    if (arrayIdTabla[i] == 1)
                     {
-                        if (arrayIdTabla[i] == 1)
+                        cn.Open();
+                        string consultaID = "select id from dbo.registroingreso where nombre = '" + arrryArticulo[i] + "';";
+
+                        SqlCommand cmdC = new SqlCommand(consultaID, cn);
+                        int idIngreso = Convert.ToInt32(cmdC.ExecuteScalar());
+
+                        cn.Close();
+                        string agregareingreso_egresos = "insert into dbo.ingreso_egresos values ('" + idEgreso + "', " + idIngreso + ", " + cantidad[i] + ");";
+                        if (bd.executecommand(agregareingreso_egresos))
                         {
-                            cn.Open();
-                            string consultaID = "select id from dbo.registroingreso where nombre = '" + arrryArticulo[i] +"';";
-
-                            SqlCommand cmdC = new SqlCommand(consultaID, cn);
-                            int idIngreso = Convert.ToInt32(cmdC.ExecuteScalar());
-
-                            cn.Close();
-                            string agregareingreso_egresos = "insert into dbo.ingreso_egresos values ('" + idEgreso + "', " + idIngreso + ", " + cantidad[i] + ");";
-                            if (bd.executecommand(agregareingreso_egresos))
-                            {
-                                //MessageBox.Show("Registro agregado correctamente");
-                            }
-                            else
-                            {
-                                MessageBox.Show("Error al agregar");
-                            }
+                            //MessageBox.Show("Registro agregado correctamente");
                         }
-
-                        else if (arrayIdTabla[i] == 0)
+                        else
                         {
-                            cn.Open();
-                            string consultaID = "select id from dbo.registrocajachica where nombre = '" + arrryArticulo[i] + "';";
-
-                            SqlCommand cmdC = new SqlCommand(consultaID, cn);
-                            int idIngreso = Convert.ToInt32(cmdC.ExecuteScalar());
-
-                            cn.Close();
-                            string agregaregresos_chica = "insert into dbo.cajachica_egresos values ('" + idEgreso + "', " + idIngreso+ ", " + cantidad[i] + ");";
-                            if (bd.executecommand(agregaregresos_chica))
-                            {
-                                //MessageBox.Show("Registro agregado correctamente");
-                            }
-                            else
-                            {
-                                MessageBox.Show("Error al agregar");
-                            }
+                            MessageBox.Show("Error al agregar");
                         }
-                        
-                        
                     }
-                    MessageBox.Show("Registro agregado correctamente en las tablas");
+
+                    else if (arrayIdTabla[i] == 0)
+                    {
+                        cn.Open();
+                        string consultaID = "select id from dbo.registrocajachica where nombre = '" + arrryArticulo[i] + "';";
+
+                        SqlCommand cmdC = new SqlCommand(consultaID, cn);
+                        int idIngreso = Convert.ToInt32(cmdC.ExecuteScalar());
+
+                        cn.Close();
+                        string agregaregresos_chica = "insert into dbo.cajachica_egresos values ('" + idEgreso + "', " + idIngreso + ", " + cantidad[i] + ");";
+                        if (bd.executecommand(agregaregresos_chica))
+                        {
+                            //MessageBox.Show("Registro agregado correctamente");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error al agregar");
+                        }
+                    }
+
+
+                }
+                MessageBox.Show("Registro agregado correctamente en las tablas");
                 for (int i = 0; i < arrayIdTabla.Count; i++)
                 {
                     if (arrayIdTabla[i] == 0)
@@ -344,7 +338,7 @@ namespace Bodega
                         }
                     }
                 }
-                
+
             }
             catch
             {
@@ -368,7 +362,7 @@ namespace Bodega
 
         private void label9_Click(object sender, EventArgs e)
         {
-                
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -385,7 +379,7 @@ namespace Bodega
 
         private void TxFecha_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)

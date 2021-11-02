@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace Bodega
 {
@@ -38,7 +31,7 @@ namespace Bodega
             this.registroingresoTableAdapter.Fill(this.iNTECAPDataSet1.registroingreso);
             //dataGridView1.DataSource = bd.SelectDataTable("Select * from dbo.registroingreso");
             dataGridView1.DataSource = bd.SelectDataTable("SELECT r.id, r.nombre, r.cantidad, r.fecha ,e.nombre as 'Tipo de unidad' FROM registroingreso r INNER JOIN tipounidad e ON e.id = r.tipounidad_id");
-            
+
         }
         public Registros()
         {
@@ -130,7 +123,7 @@ namespace Bodega
 
         public void corroborar()
         {
-            
+
             cn.Open();
             string buscar = "select nombre from dbo.registroingreso where nombre = '" + (txtNombre.Text) + "'; ";
             SqlCommand sqlcmd = new SqlCommand(buscar, cn);
@@ -144,7 +137,7 @@ namespace Bodega
                 datoC = true;
             }
             cn.Close();
-              
+
         }
 
         string tipoID;
@@ -171,7 +164,7 @@ namespace Bodega
             {
                 UnidadID();
                 string actualizar = "update dbo.registroingreso set cantidad = (cantidad + " + (Convert.ToInt32(txtCantidad.Text)) + ") where nombre = '" + (txtNombre.Text) + "'; " +
-                    "update dbo.registroingreso set fecha = '"+ dateTimePicker1.Text +"' where nombre = '" + (txtNombre.Text) + "'; " +
+                    "update dbo.registroingreso set fecha = '" + dateTimePicker1.Text + "' where nombre = '" + (txtNombre.Text) + "'; " +
                     "insert into dbo.historialingreso values ('" + txtNombre.Text + "' , " + txtCantidad.Text + " , '" + dateTimePicker1.Text + "' , " + tipoID + ");";
                 if (bd.executecommand(actualizar))
                 {
@@ -220,12 +213,12 @@ namespace Bodega
 
         private void BtLimpiar_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void txtNombre_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -235,7 +228,7 @@ namespace Bodega
 
         private void TxFecha_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)

@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace Bodega
 {
@@ -33,7 +26,7 @@ namespace Bodega
 
             //dataGridView1.DataSource = bd.SelectDataTable("Select P.id, P.nombre, P.cantidad, P.fecha, P.tipounidad_id from dbo.registrocajachica P");
             dataGridView1.DataSource = bd.SelectDataTable("SELECT r.id, r.nombre, r.cantidad, r.fecha, e.nombre as 'Tipo de unidad' FROM registrocajachica r INNER JOIN tipounidad e ON e.id = r.tipounidad_id");
-           
+
         }
 
         public void CargarDatos()
@@ -60,7 +53,7 @@ namespace Bodega
 
         private void BtCajaC_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void BtEgresos_Click(object sender, EventArgs e)
@@ -103,7 +96,7 @@ namespace Bodega
 
         private void BtLimpiar_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         string tipoID;
@@ -204,7 +197,7 @@ namespace Bodega
 
         private void CBTipoUnidad_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
