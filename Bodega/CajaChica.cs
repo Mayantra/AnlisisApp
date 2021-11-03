@@ -214,5 +214,10 @@ namespace Bodega
         {
             TxFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
         }
+
+        private void txtNombreMAYUSCULAS(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
+        }
     }
 }

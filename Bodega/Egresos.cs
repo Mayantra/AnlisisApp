@@ -23,6 +23,7 @@ namespace Bodega
         public Egresos()
         {
             InitializeComponent();
+            
             //autocompletar();
             timer1.Start();
             TxFecha.Text = DateTime.Now.ToString();
@@ -247,10 +248,42 @@ namespace Bodega
 
         }
 
+        Boolean datoC = false;
+        public void corroborar()
+        {
+
+            cn.Open();
+            string buscar = "select nombreR from dbo.receptor where nombreR = '" + (txtReceptor.Text) + "'; ";
+            SqlCommand sqlcmd = new SqlCommand(buscar, cn);
+            if (sqlcmd.ExecuteScalar() == null)
+            {
+                datoC = false;
+            }
+            else
+            {
+                datoC = true;
+            }
+            cn.Close();
+
+        }
+
         private void BtRegistrar_Click(object sender, EventArgs e)
         {
             try
             {
+                corroborar();
+                if (datoC == false)
+                {
+                    string agregarReceptor = "insert into dbo.receptor values ('" + txtReceptor.Text + "');";
+                    if (bd.executecommand(agregarReceptor))
+                    {
+                        //MessageBox.Show("Receptor agregado correctamente");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al agregar");
+                    }
+                }
                 string agregarEgreso = "insert into dbo.egresos values ('" + txtReceptor.Text + "' , '" + FEgreso.Text + "' ,  '" + RcObservaciones.Text + "' , " + (CTaller.SelectedIndex + 1) + " , " + (CArea.SelectedIndex + 1) + ");";
                 if (bd.executecommand(agregarEgreso))
                 {
@@ -359,7 +392,9 @@ namespace Bodega
             cantidad.Clear();
             dataGridViewTablas.Rows.Clear();
 
-
+            this.Hide();
+            Egresos egreso = new Egresos();
+            egreso.Show();
         }
 
         private void label9_Click(object sender, EventArgs e)
@@ -401,6 +436,12 @@ namespace Bodega
                 lista.Add(datos.Rows[i]["nombreR"].ToString());
             }
             txtReceptor.AutoCompleteCustomSource = lista;
+        }
+
+        private void RcObservaciones_TextChanged(object sender, EventArgs e)
+        {
+            //RcObservaciones.SelectedText = RcObservaciones.SelectedText.ToUpper();
+            
         }
     }
 }

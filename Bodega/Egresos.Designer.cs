@@ -304,6 +304,7 @@ namespace Bodega
             this.RcObservaciones.Size = new System.Drawing.Size(616, 94);
             this.RcObservaciones.TabIndex = 45;
             this.RcObservaciones.Text = "";
+            this.RcObservaciones.TextChanged += new System.EventHandler(this.RcObservaciones_TextChanged);
             // 
             // BtLimpiar
             // 

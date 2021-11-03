@@ -318,6 +318,7 @@ namespace Bodega
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(373, 40);
             this.txtNombre.TabIndex = 61;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombreMAYUSCULAS);
             // 
             // registrocajachicaBindingSource
             // 

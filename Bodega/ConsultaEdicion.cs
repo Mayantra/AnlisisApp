@@ -15,9 +15,14 @@ namespace Bodega
             timer1.Start();
             cbxTablas.DropDownStyle = ComboBoxStyle.DropDownList;
             TxFecha.Text = DateTime.Now.ToString();
-            btnEditar.Enabled = false;
-            btnRegistrar.Enabled = false;
-            btnVer.Enabled = false;
+            btnEditar.Visible = false;
+            btnObtener.Visible = false;
+            label2.Visible = false;
+            txtID.Visible = false;
+            button2.Visible = false;
+            label1.Visible = false;
+            btnRegistrar.Visible = false;
+            txtNombre.Visible = false;
         }
 
         private void ConsultaEdicion_Load(object sender, EventArgs e)
@@ -78,76 +83,68 @@ namespace Bodega
 
         private void BtMostrar_Click(object sender, EventArgs e)
         {
+            txtNombre.Clear();
+            txtID.Clear();
+            ocultar();
             //dataGridView1.DataSource = bd.SelectDataTable("Select P.id, P.nombre, P.cantidad, P.fecha, P.tipounidad_id from dbo.registrocajachica P");
             switch (cbxTablas.SelectedIndex)
             {
                 case 0:
                     dataGridView1.DataSource = bd.SelectDataTable("SELECT r.id, r.nombre, r.cantidad, r.fecha ,e.nombre as 'tipo de unidad' FROM registroingreso r " +
-                "INNER JOIN tipounidad e ON e.id = r.tipounidad_id ; ");//modifica nombre
-                    btnEditar.Enabled = false;
-                    btnRegistrar.Enabled = false;
-                    btnVer.Enabled = true;
+                "INNER JOIN tipounidad e ON e.id = r.tipounidad_id ; ");
+                    ocultar();
                     break;
 
                 case 1:
                     dataGridView1.DataSource = bd.SelectDataTable("SELECT r.id, r.nombre, r.cantidad, r.fecha ,e.nombre as 'tipo de unidad' FROM registrocajachica r " +
                 "INNER JOIN tipounidad e ON e.id = r.tipounidad_id ; ");//modifica nombre
-                    btnEditar.Enabled = false;
-                    btnVer.Enabled = true;
-                    btnRegistrar.Enabled = false;
+                    ocultar();
                     break;
 
                 case 2:
                     dataGridView1.DataSource = bd.SelectDataTable("SELECT r.id, r.receptor, r.fecha,r.observaciones, t.nombre as 'taller', a.nombre as 'area' " +
                 "FROM egresos r INNER JOIN area a ON r.area_id = a.id INNER JOIN taller t ON r.taller_id = t.id ; ");
-                    btnEditar.Enabled = false;
-                    btnRegistrar.Enabled = false;
-                    btnObtener.Enabled = false;
-                    btnVer.Enabled = true;
+                    ocultar();
                     break;
 
                 case 3:
                     dataGridView1.DataSource = bd.SelectDataTable("Select * from dbo.taller ;");//si modifica
-                    btnEditar.Enabled = false;
-                    btnVer.Enabled = false;
-                    btnRegistrar.Enabled = true;
+                    habilitar();
                     break;
 
                 case 4:
                     dataGridView1.DataSource = bd.SelectDataTable("Select * from dbo.area ;");//si modifica
-                    btnVer.Enabled = false;
-                    btnEditar.Enabled = false;
-                    btnRegistrar.Enabled = true;
+                    habilitar();
                     break;
 
                 case 5:
                     dataGridView1.DataSource = bd.SelectDataTable("Select * from dbo.tipounidad ;");//si modifica
-                    btnVer.Enabled = false;
-                    btnRegistrar.Enabled = true;
-                    btnEditar.Enabled = false;
+                    habilitar();
                     break;
 
                 case 6:
                     dataGridView1.DataSource = bd.SelectDataTable("SELECT r.id, r.nombre, r.cantidad, r.fecha ,e.nombre as 'tipo de unidad' FROM historialingreso r " +
                         "INNER JOIN tipounidad e ON e.id = r.tipounidad_id ; ");
-                    btnRegistrar.Enabled = false;
-                    btnVer.Enabled = true;
-                    btnEditar.Enabled = false;
-                    btnObtener.Enabled = false;
+                    ocultar();
                     break;
 
                 case 7:
                     dataGridView1.DataSource = bd.SelectDataTable("SELECT r.id, r.nombre, r.cantidad, r.fecha ,e.nombre as 'tipo de unidad' FROM historialcajachica r " +
                         "INNER JOIN tipounidad e ON e.id = r.tipounidad_id ; ");
-                    btnRegistrar.Enabled = false;
-                    btnEditar.Enabled = false;
-                    btnVer.Enabled = true;
-                    btnObtener.Enabled = false;
+                    ocultar();
                     break;
 
                 default:
                     break;
             }
+        }
+
+        public void habilitar()
+        {
+            button2.Visible = true;
+            label1.Visible = true;
+            btnRegistrar.Visible = true;
+            txtNombre.Visible = true;
         }
 
         Boolean datoC = false;
@@ -289,7 +286,10 @@ namespace Bodega
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            btnRegistrar.Enabled = true;
+            if(txtID.Text == "" && txtNombre.Text == "")
+            {
+                MessageBox.Show("Debe de llenar los campos requridos");
+            }
             switch (cbxTablas.SelectedIndex)
             {
                 case 3:
@@ -351,6 +351,13 @@ namespace Bodega
             }
             txtID.Clear();
             txtNombre.Clear();
+            button2.Visible = true;
+            btnEditar.Visible = false;
+            label2.Visible = false;
+            txtID.Visible = false;
+            btnObtener.Visible = false;
+            btnRegistrar.Enabled = true;
+            btnRegistrar.Visible = true;
         }
 
         private void btnVer_Click(object sender, EventArgs e)
@@ -399,6 +406,28 @@ namespace Bodega
         private void timer1_Tick(object sender, EventArgs e)
         {
             TxFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            btnEditar.Visible = true;
+            btnObtener.Visible = true;
+            label2.Visible = true;
+            txtID.Visible = true;
+            button2.Visible = false;
+            btnRegistrar.Visible = false;
+        }
+
+        public void ocultar()
+        {
+            btnEditar.Visible = false;
+            btnObtener.Visible = false;
+            label2.Visible = false;
+            txtID.Visible = false;
+            button2.Visible = false;
+            label1.Visible = false;
+            btnRegistrar.Visible = false;
+            txtNombre.Visible = false;
         }
     }
 }
